@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+const color1 = '#F5FCFF';
+const color2 = '#333333';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: color1,
   },
   welcome: {
     fontSize: 20,
@@ -15,26 +17,24 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: color2,
     marginBottom: 5,
   },
 });
 
-export default class Info extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
+export default function Info() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>
+        Welcome to React Native!
+      </Text>
+      <Text style={styles.instructions}>
+        To get started, edit index.ios.js
+      </Text>
+      <Text style={styles.instructions}>
+        Press Cmd+R to reload,{'\n'}
+        Cmd+D or shake for dev menu
+      </Text>
+    </View>
+  );
 }

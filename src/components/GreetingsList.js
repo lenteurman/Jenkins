@@ -1,19 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Alert } from 'react-native';
-import Greeting from './Greeting';
 import _ from 'lodash';
+import Greeting from './Greeting';
 
 export default class GreetingsList extends Component {
 
-  handleFunction(param) {
-    Alert.alert(`Received: ${JSON.stringify(param)}`);
+  handleFunction() {
+    Alert.alert(`Received: ${JSON.stringify(this.param)}`);
   }
 
   render() {
-    const greetings = _.map(this.props.names, name => (<Greeting key={name} name={name} handleFunction={this.handleFunction} />));
-
+    const greetings = _.map(this.props.names, name => (
+      <Greeting key={name} name={name} handleFunction={this.handleFunction} />));
+    const alignement = 'center';
     return (
-      <View style={{ alignItems: 'center' }}>
+      <View style={{ alignItems: alignement }}>
         {greetings}
       </View>
     );
@@ -24,6 +25,6 @@ GreetingsList.defaultProps = {
   names: [],
 };
 
-GreetingsList.propType = {
-  names: PropTypes.arrayOf(PropTypes.string).required,
+GreetingsList.propTypes = {
+  names: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

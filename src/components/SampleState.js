@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { View, Image, TouchableHighlight, Share } from 'react-native';
 
+const image1 = require('../../assets/NY1.jpg');
+const image2 = require('../../assets/NY2.jpg');
+const image3 = require('../../assets/NY3.jpg');
+
 const imgs = [
-  require('../../assets/NY1.jpg'),
-  require('../../assets/NY2.jpg'),
-  require('../../assets/NY3.jpg'),
+  image1,
+  image2,
+  image3,
 ];
 
 const INTERVAL_DELAY = 2000;
 
 export default class SampleState extends Component {
+
+  static onPressButton() {
+    Share.share({
+      message: 'Share message',
+      title: 'Share Title',
+    });
+  }
 
   constructor(props) {
     super(props);
@@ -21,6 +32,14 @@ export default class SampleState extends Component {
     this.startInterval();
   }
 
+  getImage() {
+    return (
+      <TouchableHighlight onPress={this.onPressButton}>
+        <Image source={imgs[this.state.currentImage]} />
+      </TouchableHighlight>
+    );
+  }
+
   startInterval() {
     setInterval(() => {
       let idx = this.state.currentImage;
@@ -28,21 +47,6 @@ export default class SampleState extends Component {
 
       this.setState({ currentImage: idx });
     }, INTERVAL_DELAY);
-  }
-
-  onPressButton() {
-    Share.share({
-      message: 'Share message',
-      title: 'Share Title',
-    });
-  }
-
-  getImage() {
-    return (
-      <TouchableHighlight onPress={this.onPressButton}>
-        <Image source={imgs[this.state.currentImage]} />
-      </TouchableHighlight>
-    );
   }
 
   render() {

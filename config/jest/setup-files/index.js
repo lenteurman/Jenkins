@@ -24,7 +24,7 @@ jest.mock('Linking', () => ({
 jest.mock('ScrollView', () => {
   const RealComponent = require.requireActual('ScrollView');
   class ScrollView extends RealComponent {
-    scrollTo: () => {}
+    scrollTo = () => {}
   }
   return ScrollView;
 });

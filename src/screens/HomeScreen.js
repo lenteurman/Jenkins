@@ -86,7 +86,9 @@ export default class HomeScreen extends Component {
   }
 
   navigateToState() {
+    console.log('coucou1');
     monAlert();
+    console.log('coucou2');
     this.navigate(STATE_SCENE_NAME);
   }
 

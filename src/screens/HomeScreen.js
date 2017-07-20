@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
 });
 
 const monAlert = () => {
+  console.log('TEST');
   Alert.alert(
     'Alert Title',
     'My Alert Msg',

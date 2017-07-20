@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { Sentry, SentrySeverity } from 'react-native-sentry';
+import Config from 'react-native-config'
 
 import Info from '../components/Info';
 
@@ -87,13 +88,13 @@ export default class HomeScreen extends Component {
         <View style={styles.margin}>
           <Button
             onPress={this.navigateToJsx}
-            title="Jsx"
+            title={Config.ENV}
           />
         </View>
         <View style={styles.margin}>
           <Button
             onPress={this.navigateToState}
-            title="State"
+            title={Config.API_URL}
           />
         </View>
       </ScrollView>

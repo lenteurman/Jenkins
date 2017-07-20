@@ -5,9 +5,10 @@ import {
   Button,
   StyleSheet,
   View,
+  Alert,
 } from 'react-native';
 import { Sentry, SentrySeverity } from 'react-native-sentry';
-import Config from 'react-native-config'
+import Config from 'react-native-config';
 
 import Info from '../components/Info';
 
@@ -71,6 +72,16 @@ export default class HomeScreen extends Component {
   }
 
   navigateToState() {
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+    );
     this.navigate(STATE_SCENE_NAME);
   }
 

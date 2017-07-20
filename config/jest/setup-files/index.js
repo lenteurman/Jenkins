@@ -24,7 +24,7 @@ jest.mock('Linking', () => ({
 jest.mock('ScrollView', () => {
   const RealComponent = require.requireActual('ScrollView');
   class ScrollView extends RealComponent {
-    scrollTo = () => {}
+    scrollTo: () => {}
   }
   return ScrollView;
 });
@@ -40,7 +40,7 @@ global.fetch = jest.fn();
  */
 global.fetch.mockResponseSuccess = (body = {}, status = 200) => {
   global.fetch.mockImplementationOnce(
-    () => Promise.resolve({ status, json: () => Promise.resolve(body) })
+    () => Promise.resolve({ status, json: () => Promise.resolve(body) }),
   );
 };
 
@@ -63,7 +63,7 @@ global.fetch.mockResponseSuccessWithHeaders = (body = {}, headers = {}, status =
         },
         json: () => Promise.resolve(body),
       });
-    }
+    },
   );
 };
 
@@ -72,6 +72,6 @@ global.fetch.mockResponseSuccessWithHeaders = (body = {}, headers = {}, status =
  */
 global.fetch.mockResponseFailure = (error) => {
   global.fetch.mockImplementationOnce(
-    () => Promise.reject(error)
+    () => Promise.reject(error),
   );
 };

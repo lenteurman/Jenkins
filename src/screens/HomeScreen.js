@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
 });
 
 const monAlert = () => {
-  console.log('TEST');
   Alert.alert(
     'Alert Title',
     'My Alert Msg',
@@ -86,9 +85,6 @@ export default class HomeScreen extends Component {
   }
 
   navigateToState() {
-    console.log('coucou1');
-    monAlert();
-    console.log('coucou2');
     this.navigate(STATE_SCENE_NAME);
   }
 
@@ -113,6 +109,12 @@ export default class HomeScreen extends Component {
           <Button
             onPress={this.navigateToState}
             title={Config.API_URL}
+          />
+        </View>
+        <View style={styles.margin}>
+          <Button
+            onPress={monAlert}
+            title="HOT Alerts"
           />
         </View>
       </ScrollView>
